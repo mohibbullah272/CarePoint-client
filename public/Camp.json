@@ -1,0 +1,53 @@
+[
+    {
+      "campName": "Free Health Check-Up Camp",
+      "image": "https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "campFees": "Free",
+      "dateAndTime": "2025-02-15, 9:00 AM - 5:00 PM",
+      "location": "Community Hall, Dhaka",
+      "healthcareProfessional": "Dr. Ayesha Rahman",
+      "participantCount": 120,
+      "description": "A free health check-up camp providing basic health screenings, blood pressure checks, and diabetes tests for the community."
+    },
+    {
+      "campName": "Dental Awareness Camp",
+      "image": "https://images.pexels.com/photos/5355833/pexels-photo-5355833.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "campFees": "BDT 200",
+      "dateAndTime": "2025-03-01, 10:00 AM - 3:00 PM",
+      "location": "Bright Smiles Dental Clinic, Chattogram",
+      "healthcareProfessional": "Dr. Omar Siddiqui",
+      "participantCount": 85,
+      "description": "An awareness and treatment camp focusing on oral hygiene, free dental check-ups, and preventive care tips."
+    },
+    {
+      "campName": "Child Vaccination Camp",
+      "image": "https://images.pexels.com/photos/7653121/pexels-photo-7653121.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "campFees": "BDT 500",
+      "dateAndTime": "2025-02-20, 8:00 AM - 2:00 PM",
+      "location": "Mother Care Hospital, Sylhet",
+      "healthcareProfessional": "Dr. Mariam Akter",
+      "participantCount": 150,
+      "description": "A vaccination camp offering routine immunizations for children, ensuring a healthier future."
+    },
+    {
+      "campName": "Heart Health Awareness Camp",
+      "image": "https://images.pexels.com/photos/7108344/pexels-photo-7108344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "campFees": "Free",
+      "dateAndTime": "2025-02-25, 9:00 AM - 4:00 PM",
+      "location": "City Heart Center, Rajshahi",
+      "healthcareProfessional": "Dr. Hasan Mahmud",
+      "participantCount": 200,
+      "description": "A heart health camp featuring expert consultations, ECG screenings, and dietary advice for better cardiovascular health."
+    },
+    {
+      "campName": "Women’s Health Camp",
+      "image": "https://images.pexels.com/photos/7088841/pexels-photo-7088841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "campFees": "BDT 300",
+      "dateAndTime": "2025-03-05, 10:00 AM - 5:00 PM",
+      "location": "Healthy Women Center, Khulna",
+      "healthcareProfessional": "Dr. Farzana Yasmin",
+      "participantCount": 180,
+      "description": "A camp dedicated to women's health, providing free gynecological check-ups and counseling sessions for reproductive health."
+    }
+  ]
+  

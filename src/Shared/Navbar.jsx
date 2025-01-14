@@ -45,7 +45,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
             {
                 links
             }
@@ -63,7 +63,14 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
         {
-            navEnd
+            user?navEnd:<div className="flex items-center gap-5">
+            <Link to={'/signup'}>
+            <button className="underline  italic hover:font-bold">Signup</button>
+            </Link>
+          <Link to={'/login'}>
+          <button className="secondary">Signin</button>
+          </Link>
+            </div>
         }
         </div>
       </div>
