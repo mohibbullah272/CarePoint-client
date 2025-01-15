@@ -3,7 +3,6 @@ import Layout from "../Layout/Layout";
 import Home from "../Page/Home/Home/Home";
 import AvailableCamp from "../Page/AvailableCamp/AvailableCamp";
 import JoinUs from "../Page/JoinUs";
-import Signin from "../Page/Signin";
 import Signup from "../Page/Signup";
 
 
@@ -23,10 +22,6 @@ const router = createBrowserRouter([
             {
                 path:'joinUs',
                 element:<JoinUs></JoinUs>
-            },
-            {
-                path:'login',
-                element:<Signin></Signin>
             },
             {
                 path:'signup',

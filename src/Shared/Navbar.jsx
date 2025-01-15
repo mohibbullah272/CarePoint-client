@@ -16,12 +16,14 @@ const Navbar = () => {
             src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
         </div>
       </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a>Dashboard</a></li>
-        <li><a>Logout</a></li>
-      </ul>
+  {
+    user &&     <ul
+    tabIndex={0}
+    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+    <li><a>Dashboard</a></li>
+    <li><a>Logout</a></li>
+  </ul>
+  }
     </div>
    
     </>
@@ -62,16 +64,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        {
-            user?navEnd:<div className="flex items-center gap-5">
-            <Link to={'/signup'}>
-            <button className="underline  italic hover:font-bold">Signup</button>
-            </Link>
-          <Link to={'/login'}>
-          <button className="secondary">Signin</button>
-          </Link>
-            </div>
-        }
+       {
+        navEnd
+       }
         </div>
       </div>
     );
