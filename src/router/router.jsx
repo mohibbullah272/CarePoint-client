@@ -4,6 +4,7 @@ import Home from "../Page/Home/Home/Home";
 import AvailableCamp from "../Page/AvailableCamp/AvailableCamp";
 import JoinUs from "../Page/JoinUs";
 import Signup from "../Page/Signup";
+import Dashboard from "../Layout/Dashboard/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
                 element:<Signup></Signup>
             }
         ])
+    },
+    {
+        path:"/Dashboard",
+        element:<Dashboard></Dashboard>
     }
 ])
 

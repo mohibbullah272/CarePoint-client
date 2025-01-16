@@ -1,16 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
+import SocialLogin from "../Shared/SocialLogin";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const JoinUs = () => {
         const [showPass,setShowPass]=useState(false)
+        const {login}=useContext(AuthContext)
         const {
             register,
             handleSubmit,
             formState: { errors },
           } = useForm()
-          const onSubmit = (data) => console.log(data)
+          const onSubmit = (data) => {
+            const email = data?.email
+            const password= data?.password
+            login(email,password)
+            .then(result=>{
+              console.log(result)
+            })
+            .catch(err=>{
+              console.log(err)
+            })
+          }
 
     return (
         <div className="min-h-[calc(100vh-68px)] flex flex-col items-center justify-center relative" style={{
@@ -47,10 +60,7 @@ const JoinUs = () => {
           <button className="btn secondary">Sign in</button>
         </div>
         <div className="divider">or</div>
-        <div className="flex text-left items-center  btn btn-outline">
-        <img width="30" height="30"  className="ml-20" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
-        <p>Login with Google</p>
-        </div>
+      <SocialLogin></SocialLogin>
       </form>
       <p className="p-7">New here? <Link to={'/signup'} className="underline">Create a new account</Link></p>
     </div>

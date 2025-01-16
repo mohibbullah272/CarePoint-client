@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { uploadImage } from "../Hook/imageUpload";
+import SocialLogin from "../Shared/SocialLogin";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 
 const Signup = () => {
         const [showPass,setShowPass]=useState(false)
+        const [loading,setLoading]=useState(false)
+        const {register:signUpWithEmail,updateUser}=useContext(AuthContext)
         const {
           register,
           handleSubmit,
@@ -15,8 +20,21 @@ const Signup = () => {
           const name = data?.name;
           const email = data?.email;
           const imageFile = data?.image[0]
+          const password = data?.password
+        try{
+          setLoading(true)
           const image = await uploadImage(imageFile)
-          console.log(image)
+         const result=await signUpWithEmail(email,password)
+         console.log(result)
+         const updateUserProfile= await updateUser(name,image)
+         console.log(updateUserProfile)
+        }
+         catch(err){
+          console.log(err)
+         }
+         finally{
+          setLoading(false)
+         } 
         }
 
     return (
@@ -62,13 +80,12 @@ const Signup = () => {
                  </div>
         </div>
         <div className="form-control mt-6">
-          <button className="btn secondary">Sign up</button>
+      {
+        loading?<button  className="btn w-full"><span className="loading loading-spinner  loading-xs"></span></button>:    <button className="btn secondary">Sign up</button>
+      }
         </div>
         <div className="divider">or</div>
-        <div className="flex text-left items-center  btn btn-outline">
-        <img width="30" height="30"  className="ml-20" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
-        <p>sign up with Google</p>
-        </div>
+     <SocialLogin></SocialLogin>
       </form>
       <p className="p-7">Already have an account? <Link to={'/login'} className="underline">login now</Link></p>
     </div>
