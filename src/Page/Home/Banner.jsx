@@ -88,7 +88,7 @@ const Banner = () => {
       <p>
       Our volunteers have made a direct impact in improving public health through dedicated service
       </p>
-      <button className='primary italic mt-4'>Book Your Appointment Today</button>
+      <button className='primary italic mt-4'>Book Appointment </button>
     </div>
   </div>
 </SwiperSlide>

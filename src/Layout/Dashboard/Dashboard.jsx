@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+import svg from '../../assets/hand-holding-medical.svg'
 const Dashboard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const admin = false
+  const admin = true
 
   return (
     <div className="min-h-screen text-[#0d0e0e] bg-[#fafafa] flex relative">
@@ -14,6 +15,11 @@ const Dashboard = () => {
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:w-1/4`}
       >
+<div className="flex items-center justify-center mb-5 gap-4">
+     <Link to={'/'} className="btn  btn-ghost text-xl">  
+          <img src={svg} className="w-8 h-8" alt="" />
+          CarePoint</Link>
+     </div>
         <ul className="space-y-4 p-3 ">
             {/* admin route */}
            {
@@ -21,7 +27,7 @@ const Dashboard = () => {
              <li>
             <NavLink to={"/profile"}>Profile</NavLink>
           </li>
-            <li><NavLink>Add A Camp</NavLink></li>
+            <li><NavLink to={'/dashboard/addCamp'}>Add A Camp</NavLink></li>
             <li><NavLink>Manage Camps</NavLink></li>
             <li><NavLink>Manage Registered Camps </NavLink></li>
             
@@ -57,7 +63,7 @@ const Dashboard = () => {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 md:w-4/5 p-2">
+      <div className="flex-1 md:w-4/5 md:p-5 p-2">
         {/* Hamburger Button */}
         <button
           className="md:hidden   p-2 rounded mb-4"
@@ -65,7 +71,7 @@ const Dashboard = () => {
         >
      <RxHamburgerMenu />
         </button>
-        <p>This is from the dashboard</p>
+      <Outlet></Outlet>
       </div>
     </div>
   );

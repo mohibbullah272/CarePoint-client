@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-
+import navIcon from '../assets/hand-holding-medical.svg'
 const Navbar = () => {
    const {user,logout}=useContext(AuthContext)
    const handleLogout=()=>{
@@ -62,7 +62,11 @@ const Navbar = () => {
        
             </ul>
           </div>
-          <Link to={'/'} className="btn btn-ghost text-xl">CarePoint</Link>
+     <div className="flex items-center gap-4">
+     <Link to={'/'} className="btn btn-ghost text-xl">  
+          <img src={navIcon} className="w-10 h-10" alt="" />
+          CarePoint</Link>
+     </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

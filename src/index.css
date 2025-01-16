@@ -11,7 +11,12 @@ body {
   margin: 0;
   padding: 0;
 }
-
+h1,h2{
+  color: #0D0E0E;
+}
+h3,h4{
+  color: #7e9695;
+}
 .card {
   background-color: #FFFFFF; /* White */
   border: 1px solid #E5E7EB; /* Light Border */
