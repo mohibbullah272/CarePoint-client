@@ -7,7 +7,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const Banner = () => {
     return (
-  <div className='h-[600px]'>
+  <div className='h-[500px]'>
           <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -36,7 +36,7 @@ const Banner = () => {
 
  
     <div className="relative z-10 p-5 max-w-lg">
-      <h3 className="text-2xl font-bold mb-4">Over 
+      <h3 className="text-2xl text-white font-bold mb-4">Over 
         +500 Free Consultations Given</h3>
       <p>
         Our team of experts provided free consultations to individuals in need, helping prevent
@@ -61,7 +61,7 @@ const Banner = () => {
 
    
     <div className="relative p-5 z-10 max-w-lg">
-      <h3 className="text-2xl font-bold mb-4">We’ve Delivered Over 200 Surgeries!</h3>
+      <h3 className="text-2xl text-white font-bold mb-4">We’ve Delivered Over 200 Surgeries!</h3>
       <p>
       From small surgeries to life-saving procedures, we’ve helped many regain their health and quality of life.
       </p>
@@ -84,7 +84,7 @@ const Banner = () => {
 
    
     <div className="relative p-5 z-10 max-w-lg">
-      <h3 className="text-2xl font-bold mb-4">Changing Lives, One Camp at a Time!</h3>
+      <h3 className="text-2xl text-white font-bold mb-4">Changing Lives, One Camp at a Time!</h3>
       <p>
       Our volunteers have made a direct impact in improving public health through dedicated service
       </p>

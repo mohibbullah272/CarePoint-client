@@ -5,64 +5,99 @@
 
 
 body {
-  background-color: #F9FAFB; /* Light Gray */
+  background-color: #F3F9F4; /* Light Mint Green */
   font-family: 'Roboto', sans-serif;
-  color: #1F2937; /* Dark Gray */
+  color: #0A192F; /* Deep Navy for better contrast */
   margin: 0;
   padding: 0;
 }
+
+h1, h2 {
+  color: #065F46; /* Dark Green */
+}
+
+h3, h4 {
+  color: #1E3A8A; /* Medium Blue */
+}
+
+.card {
+  background-color: #FFFFFF; 
+  border: 1px solid #CBD5E1; /* Soft Blue-Gray */
+  border-radius: 12px; /* Slightly more rounded for a friendlier appearance */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin: 16px;
+}
+
+.primary {
+  background-color: #0284C7; /* Bright Sky Blue */
+  color: #FFFFFF; 
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary:hover {
+  background-color: #0369A1; 
+  transform: scale(1.05); 
+}
+
+.secondary {
+  background-color: #9CA3AF; 
+  color: #FFFFFF; 
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.secondary:hover {
+  background-color: #6B7280; /* Darker Gray */
+  transform: scale(1.05);
+}
+
+.accent {
+  color: #10B981; 
+  font-weight: bold;
+}
+
+
+
+
+
+button {
+  transition: background-color 0.3s, box-shadow 0.2s;
+}
+
+button:focus {
+  box-shadow: 0 0 4px rgba(2, 132, 199, 0.5);
+  outline: none;
+}
+
+footer {
+  background-color: #065F46; /* Dark Green */
+  color: #FFFFFF;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+
+
+
+
 h1,h2{
   color: #0D0E0E;
 }
 h3,h4{
   color: #7e9695;
-}
-.card {
-  background-color: #FFFFFF; /* White */
-  border: 1px solid #E5E7EB; /* Light Border */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft Shadow */
-  padding: 16px;
-  margin: 16px;
-}
-
-
-.primary {
-  background-color: #2563EB; /* Blue */
-  color: #FFFFFF; /* White */
-  border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.primary:hover {
-  background-color: #1D4ED8; /* Darker Blue */
-}
-
-.secondary {
-  background-color: #6B7280; /* Gray */
-  color: #FFFFFF; /* White */
-  border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button.secondary:hover {
-  background-color: #4B5563; /* Darker Gray */
-}
-
-
-.accent {
-  color: #EF4444; /* Red */
-  font-weight: bold;
 }
 
 

@@ -5,6 +5,8 @@ import { RouterProvider } from 'react-router-dom'
 import router from './router/router'
 import AuthProvider from './AuthProvider/AuthProvider'
 import  { Toaster } from 'react-hot-toast';
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
 import {
   QueryClient,
   QueryClientProvider,
@@ -12,11 +14,13 @@ import {
 const queryClient = new QueryClient()
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+<MantineProvider>
 <QueryClientProvider client={queryClient}>
 <AuthProvider>
 <RouterProvider router={router}></RouterProvider>
-<Toaster/>
+<Toaster position='top-right' />
 </AuthProvider>
 </QueryClientProvider>
+</MantineProvider>
   </StrictMode>,
 )

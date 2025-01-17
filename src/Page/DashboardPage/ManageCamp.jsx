@@ -1,10 +1,23 @@
 import { FaPenAlt, FaTrashAlt } from "react-icons/fa";
 import SharedTitle from "../../Components/SharedTitle";
 import useCamp from "../../Hook/useCamp";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const ManageCamp = () => {
-    const [camp,isLoading]=useCamp()
-    console.log(camp)
+    const [camp,isLoading,refetch]=useCamp()
+    const axiosSecure = useAxiosSecure()
+    const handleDelete=async(id)=>{
+    const {data}= await axiosSecure.delete(`/remove-camp/${id}`)
+    if(data.deletedCount){
+      toast.success('camp deleted successfully')
+      refetch()
+    }
+    }
+    if(isLoading){
+        return <p className="text-3xl">Please wait</p>
+    }
     return (
         <div className="max-w-7xl mx-auto">
         <SharedTitle title={'Mange Camps'}></SharedTitle>
@@ -12,7 +25,7 @@ const ManageCamp = () => {
             <h3 className="text-2xl font-semibold mb-5">Total Camp {camp?.length}</h3>
             <div className="overflow-x-auto rounded-t-xl">
   <table className="table">
-    {/* head */}
+
     <thead className="bg-[#a8bdbc]">
       <tr>
         <th>Camp</th>
@@ -44,10 +57,12 @@ const ManageCamp = () => {
             </td>
             <td>
                 <div className="flex items-center justify-center gap-7">
-                    <button className="btn ">
+                <Link to={`/dashboard/updateCamp/${item?._id}`}>
+                <button className="btn ">
                         <FaPenAlt></FaPenAlt>
                     </button>
-                    <button className="btn border-none bg-[#7e9695]">
+                </Link>
+                    <button onClick={()=>handleDelete(item?._id)} className="btn border-none bg-[#7e9695]">
                     <FaTrashAlt className="text-white"></FaTrashAlt>
                     </button>
                 </div>

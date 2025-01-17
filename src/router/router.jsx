@@ -7,6 +7,7 @@ import Signup from "../Page/Signup";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import AddCamp from "../Page/DashboardPage/AddCamp";
 import ManageCamp from "../Page/DashboardPage/ManageCamp";
+import UpdateCamp from "../Page/DashboardPage/UpdateCamp";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path:'manageCamp',
                 element:<ManageCamp></ManageCamp>
+            },
+            {
+                path:'updateCamp/:id',
+                element:<UpdateCamp></UpdateCamp>
             }
         ])
     }
