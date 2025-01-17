@@ -5,9 +5,7 @@ import "react-datetime/css/react-datetime.css";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { uploadImage } from "../../Hook/imageUpload";
-import axios from "axios";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
-import { button } from "@material-tailwind/react";
 import toast from "react-hot-toast";
 const AddCamp = () => {
     const {user}=useContext(AuthContext)
@@ -31,6 +29,7 @@ const AddCamp = () => {
      const date_time=dateTime?._d
      const description =data?.description
      const imgFile = data?.image[0]
+     const participant_count = 0;
 try{
     setLoading(true)
     const image = await uploadImage(imgFile)
@@ -43,7 +42,9 @@ try{
         location,
         date_time,
         description,
-        image
+        image,
+        participant_count
+        
     }
   const {data} = await axiosSecure.post('/add-camp',campData)
   console.log(data)

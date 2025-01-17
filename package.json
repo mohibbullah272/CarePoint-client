@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.64.1",
     "axios": "^1.7.9",
     "firebase": "^11.1.0",
     "localforage": "^1.10.0",
@@ -26,7 +27,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "@material-tailwind/react": "^2.1.10",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",

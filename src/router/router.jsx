@@ -6,6 +6,7 @@ import JoinUs from "../Page/JoinUs";
 import Signup from "../Page/Signup";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import AddCamp from "../Page/DashboardPage/AddCamp";
+import ManageCamp from "../Page/DashboardPage/ManageCamp";
 
 
 const router = createBrowserRouter([
@@ -32,13 +33,17 @@ const router = createBrowserRouter([
         ])
     },
     {
-        path:"/Dashboard",
+        path:"/dashboard",
         element:<Dashboard></Dashboard>,
         children:([
             // admin route
             {
                 path:'addCamp',
                 element:<AddCamp></AddCamp>
+            },
+            {
+                path:'manageCamp',
+                element:<ManageCamp></ManageCamp>
             }
         ])
     }
