@@ -2,6 +2,7 @@ import { FaCalendar, FaCalendarAlt, FaLocationArrow } from "react-icons/fa";
 import { MdGroups2 } from "react-icons/md";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FaUserDoctor } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 const CampCard = ({camp}) => {
     const {_id,professional_name,location,description,camp_name,camp_fee,date_time,
         image,participant_count}=camp || {}
@@ -30,7 +31,9 @@ const CampCard = ({camp}) => {
           <p className="flex items-center gap-3"><BsCurrencyDollar></BsCurrencyDollar>{camp_fee} </p>
           <p title="participant count " className="flex items-center gap-3 "><MdGroups2 />{participant_count}</p>
           <div className="flex  justify-end">
-            <button className="primary">Details</button>
+ <Link to={`/camp-details/${_id}`}>
+ <button className="primary">Details</button>
+ </Link>
           </div>
         </div>
       </div>

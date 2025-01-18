@@ -8,6 +8,8 @@ import Dashboard from "../Layout/Dashboard/Dashboard";
 import AddCamp from "../Page/DashboardPage/AddCamp";
 import ManageCamp from "../Page/DashboardPage/ManageCamp";
 import UpdateCamp from "../Page/DashboardPage/UpdateCamp";
+import CampDetails from "../Page/Home/CampDetails";
+import axios from "axios";
 
 
 const router = createBrowserRouter([
@@ -22,6 +24,11 @@ const router = createBrowserRouter([
             {
                 path:'availableCamp',
                 element:<AvailableCamp></AvailableCamp>
+            },
+            {
+                path:'/camp-details/:id',
+                element:<CampDetails></CampDetails>,
+                loader:({params})=>axios.get(`http://localhost:8500/camp-details/${params.id}`)
             },
             {
                 path:'joinUs',
