@@ -25,7 +25,7 @@ h3, h4 {
   border: 1px solid #CBD5E1; /* Soft Blue-Gray */
   border-radius: 12px; /* Slightly more rounded for a friendlier appearance */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  margin: 16px;
+ 
 }
 
 .primary {

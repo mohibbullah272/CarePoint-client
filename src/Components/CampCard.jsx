@@ -1,8 +1,8 @@
 import { FaCalendar, FaCalendarAlt, FaLocationArrow } from "react-icons/fa";
 import { MdGroups2 } from "react-icons/md";
 import { BsCurrencyDollar } from "react-icons/bs";
+import { FaUserDoctor } from "react-icons/fa6";
 const CampCard = ({camp}) => {
-    console.log(camp)
     const {_id,professional_name,location,description,camp_name,camp_fee,date_time,
         image,participant_count}=camp || {}
     return (
@@ -15,6 +15,8 @@ const CampCard = ({camp}) => {
         </figure>
         <div className="flex-grow p-2">
           <h2 className="font-semibold italic">{camp_name}</h2>
+          <p className="text-gray-900">{description?.slice(0,50)}..........</p>
+          <p className="flex items-center gap-3"><FaUserDoctor></FaUserDoctor> {professional_name}</p>
           <p className="flex items-center gap-3"><FaCalendarAlt></FaCalendarAlt> {
             new Date(date_time).toLocaleDateString('en-US',{
             
