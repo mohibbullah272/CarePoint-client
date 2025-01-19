@@ -21,9 +21,12 @@ const CampCard = ({camp}) => {
           <p className="flex items-center gap-3"><FaCalendarAlt></FaCalendarAlt> {
             new Date(date_time).toLocaleDateString('en-US',{
             
-                year:'numeric',
-                month:'long',
-                day:'2-digit'
+                year:'2-digit',
+                month:'numeric',
+                day:'numeric',
+                hour:'2-digit',
+                minute:'2-digit',
+                hour12:true
             })
 
           }</p>
