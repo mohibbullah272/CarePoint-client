@@ -5,6 +5,7 @@ import axios from "axios";
 import SharedTitle from "../../Components/SharedTitle";
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const RegisterCampUser = () => {
     const {user}=useContext(AuthContext)
     const {data:camps}=useQuery({
@@ -39,7 +40,9 @@ const RegisterCampUser = () => {
         <td><p className="text-right">${camp.camp_fee}</p></td>
         <td>{camp?.name}</td>
         <td>{
-            camp?.payment_status==="unpaid"?<button className=" text-gray-900 bg-[#8fb0ae] p-3 rounded-xl" >Pay</button>:<button disabled className=" text-gray-900 bg-[#8fb0ae] p-3 rounded-xl">Paid</button>
+            camp?.payment_status==="unpaid"?<Link to={`/dashboard/payment/${camp?._id}`}>
+            <button className=" text-gray-900 bg-[#8fb0ae] p-3 rounded-xl" >Pay</button>
+            </Link>:<button disabled className=" text-gray-900 bg-[#8fb0ae] p-3 rounded-xl">Paid</button>
             }</td>
             <td>
              <p className="text-center bg-red-300/10 shadow p-1 rounded-md">   {

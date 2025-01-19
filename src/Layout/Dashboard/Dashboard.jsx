@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import svg from '../../assets/hand-holding-medical.svg'
 const Dashboard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const admin = true
+  const admin = false
 
   return (
     <div className="min-h-screen text-[#0d0e0e] bg-[#fafafa] flex relative">

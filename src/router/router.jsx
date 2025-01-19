@@ -12,6 +12,7 @@ import CampDetails from "../Page/Home/CampDetails";
 import axios from "axios";
 import RegisterCampUser from "../Page/DashboardPage/RegisterCampUser";
 import ManageRegisterCamp from "../Page/DashboardPage/ManageRegisterCamp";
+import Payment from "../Page/DashboardPage/Payment";
 
 
 const router = createBrowserRouter([
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
             {
                 path:'register-camp',
                 element:<RegisterCampUser></RegisterCampUser>
+            },
+            {
+                path:'payment/:id',
+                element:<Payment></Payment>
             }
         ])
     }
