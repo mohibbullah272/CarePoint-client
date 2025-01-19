@@ -1,21 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+
 import React, { useState } from 'react';
 import CampCard from '../../Components/CampCard';
 import { FaTh } from 'react-icons/fa';
+import useAvailableCampApi from '../../Hook/useAvailableCampApi';
 
 const AvailableCamp = () => {
   const [layout,setLayout]=useState(false)
   const [search,setSearch]=useState('')
   const [sort,setSort]=useState('')
-    const {data:camps}=useQuery({
-        queryKey:["availableCamps",search,sort],
-        queryFn:async()=>{
-            const {data} = await axios(`http://localhost:8500/available-camp?search=${search}&&sort=${sort}`)
-            return data
-        }
-    })
-
+const [camps,isLoading,refetch]=useAvailableCampApi(search,sort)
+console.log(camps)
     return (
         <div>
       <div className="flex flex-wrap justify-between items-center p-4 bg-white border-b">
