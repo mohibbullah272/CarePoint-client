@@ -2,23 +2,36 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { FaCalendarAlt, FaLocationArrow } from "react-icons/fa";
 import { FaUserDoctor } from "react-icons/fa6";
 import { MdGroups2 } from "react-icons/md";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
 import JoinCampForm from "../../Components/JoinCampForm";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import LoadingPage from "../loading/LoadingPage";
 
 const CampDetails = () => {
-    const campData = useLoaderData()
+    const {id}=useParams()
+    const {data:campData,isLoading,refetch}=useQuery({
+      queryKey:["campDetails",id],
+      queryFn:async()=>{
+        const {data} = await axios(`http://localhost:8500/camp-details/${id}`)
+        return data
+      }
+    })
     const {_id,professional_name,location,description,camp_name,camp_fee,date_time,
-        image,participant_count}=campData.data ||{}
+        image,participant_count}=campData ||{}
         const [opened, { open, close }] = useDisclosure(false);
+        if(isLoading){
+          return <LoadingPage></LoadingPage>
+        }
     return (
         <div className="min-h-screen  flex md:flex-row flex-col   md:p-10 gap-5 p-5">
       <div className="md:w-1/2 w-full">
         <img className="w-full md:h-[400px] h-[200px]object-cover" src={image} alt="detail img" />
       </div>
       <Modal opened={opened} onClose={close} title="Join Camp">
-    <JoinCampForm close={close} camp={campData}></JoinCampForm>
+    <JoinCampForm close={close} refetch={refetch} camp={campData}></JoinCampForm>
       </Modal>
       <div className="md:w-1/2 w-full ">
 <h3 className="text-2xl font-semibold text-gray-900">{camp_name}</h3>

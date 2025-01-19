@@ -10,6 +10,8 @@ import ManageCamp from "../Page/DashboardPage/ManageCamp";
 import UpdateCamp from "../Page/DashboardPage/UpdateCamp";
 import CampDetails from "../Page/Home/CampDetails";
 import axios from "axios";
+import RegisterCampUser from "../Page/DashboardPage/RegisterCampUser";
+import ManageRegisterCamp from "../Page/DashboardPage/ManageRegisterCamp";
 
 
 const router = createBrowserRouter([
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
             {
                 path:'/camp-details/:id',
                 element:<CampDetails></CampDetails>,
-                loader:({params})=>axios.get(`http://localhost:8500/camp-details/${params.id}`)
+             
             },
             {
                 path:'joinUs',
@@ -56,6 +58,15 @@ const router = createBrowserRouter([
             {
                 path:'updateCamp/:id',
                 element:<UpdateCamp></UpdateCamp>
+            },
+            {
+                path:'manage-register-camp',
+                element:<ManageRegisterCamp></ManageRegisterCamp>
+            },
+            // participant route
+            {
+                path:'register-camp',
+                element:<RegisterCampUser></RegisterCampUser>
             }
         ])
     }

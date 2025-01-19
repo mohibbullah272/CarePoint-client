@@ -2,12 +2,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../Hook/useAxiosPublic";
+import toast from "react-hot-toast";
 
-const JoinCampForm = ({camp,close}) => {
+const JoinCampForm = ({camp,close,refetch}) => {
     const {_id,professional_name,camp_name,camp_fee,
-      location}=camp.data ||{}
+      location}=camp ||{}
       const [loading,setLoading]=useState(false)
       const axiosPublic = useAxiosPublic()
+
  const {user}=useContext(AuthContext)
  const {
     register,
@@ -27,17 +29,22 @@ const JoinCampForm = ({camp,close}) => {
         age :data?.age,
         gender:data?.gender,
         emergency_contact:data?.emergency_contact,
-        phone_number:data?.phone_number
+        phone_number:data?.phone_number,
+        confirmation_status:"pending",
+        payment_status:"unpaid"
 
     }
     try{
         setLoading(true)
-     const {data}=  await axiosPublic.post('/join-camp',joiningData)
-     console.log(data)
+      await axiosPublic.post('/join-camp',joiningData)
+   
     }catch(err){
         console.log(err)
     }finally{
         setLoading(false)
+        close()
+        toast.success('your request is in processing')
+        refetch()
     }
   
   }
@@ -123,7 +130,9 @@ const JoinCampForm = ({camp,close}) => {
     </div>
    
         <div className="form-control mt-6">
-          <button className="btn primary">Submit</button>
+        {
+            loading?<button><span className="loading loading-spinner loading-xs"></span></button>:<button className="btn primary">Submit</button>
+        }
         </div>
       </form>
         </div>

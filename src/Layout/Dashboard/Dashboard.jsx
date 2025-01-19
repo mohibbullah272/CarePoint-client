@@ -29,14 +29,14 @@ const Dashboard = () => {
           </li>
             <li><NavLink to={'/dashboard/addCamp'}>Add A Camp</NavLink></li>
             <li><NavLink to={'/dashboard/manageCamp'}>Manage Camps</NavLink></li>
-            <li><NavLink>Manage Registered Camps </NavLink></li>
+            <li><NavLink to={'/dashboard/manage-register-camp'}>Manage Registered Camps </NavLink></li>
             
             </>:
             // user route
             <>
             <li><NavLink>Analytics</NavLink></li>
             <li><NavLink>Profile</NavLink></li>
-            <li><NavLink>Registered Camps</NavLink></li>
+            <li><NavLink to={'/dashboard/register-camp'}>Registered Camps</NavLink></li>
             <li><NavLink>Payment History</NavLink></li>
             </>
            }
@@ -54,7 +54,7 @@ const Dashboard = () => {
         </ul>
       </div>
 
-      {/* Backdrop for small screens */}
+  
       {isMenuOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
@@ -62,9 +62,9 @@ const Dashboard = () => {
         ></div>
       )}
 
-      {/* Main Content */}
+   
       <div className="flex-1 md:w-4/5 md:p-5 p-2">
-        {/* Hamburger Button */}
+    
         <button
           className="md:hidden   p-2 rounded mb-4"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
