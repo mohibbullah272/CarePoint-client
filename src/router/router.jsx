@@ -15,6 +15,7 @@ import ManageRegisterCamp from "../Page/DashboardPage/ManageRegisterCamp";
 import Payment from "../Page/DashboardPage/Payment";
 import PaymentHistory from "../Page/DashboardPage/PaymentHistory";
 import AdminRoute from "./AdminRoute";
+import Profile from "../Page/DashboardPage/Profile";
 
 
 const router = createBrowserRouter([
@@ -73,6 +74,12 @@ const router = createBrowserRouter([
                 element:<AdminRoute>
                     <ManageRegisterCamp></ManageRegisterCamp>
                 </AdminRoute>
+            },
+            {
+                path:'Profile',
+                element:
+                    <Profile></Profile>
+                
             },
             // participant route
             {

@@ -30,7 +30,7 @@ if(isLoading){
            {
             isAdmin?<>
              <li>
-            <NavLink to={"/profile"}>Profile</NavLink>
+            <NavLink to={"/dashboard/Profile"}>Profile</NavLink>
           </li>
             <li><NavLink to={'/dashboard/addCamp'}>Add A Camp</NavLink></li>
             <li><NavLink to={'/dashboard/manageCamp'}>Manage Camps</NavLink></li>
