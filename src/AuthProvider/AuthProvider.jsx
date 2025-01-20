@@ -40,7 +40,13 @@ useEffect(()=>{
         if(currentUser?.email){
             setUser(currentUser)
             setLoading(false)
-
+            const userInfo = { email: currentUser.email };
+            axiosPublic.post('/jwt', userInfo)
+                .then(res => {
+                    if (res.data.token) {
+                        localStorage.setItem('access-token', res.data.token);
+                    }
+                })
             setTimeout(() => {
                 axiosPublic.post(`/add-user/${currentUser?.email}`,{
                     name:currentUser?.displayName,
@@ -54,6 +60,7 @@ useEffect(()=>{
         }
         else{
            setUser(null)
+           localStorage.removeItem('access-token')
         }
   
     })
