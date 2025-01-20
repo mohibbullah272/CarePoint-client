@@ -87,7 +87,7 @@ const Signup = () => {
         <div className="divider">or</div>
      <SocialLogin></SocialLogin>
       </form>
-      <p className="p-7">Already have an account? <Link to={'/login'} className="underline">login now</Link></p>
+      <p className="p-7">Already have an account? <Link to={'/joinUs'} className="underline">login now</Link></p>
     </div>
         </div>
     );

@@ -34,7 +34,7 @@ const JoinUs = () => {
         }}>
             <div className="absolute  inset-0 bg-black/30 backdrop-blur-sm"></div>
             <div className="relative">
-                <h3 className="text-3xl my-5 text-center ">Welcome Back!!</h3>
+                <h3 className="text-3xl my-5 text-center text-black">Welcome Back!!</h3>
             </div>
             <div className="bg-white/10 backdrop-blur-xl mx-auto  w-full max-w-sm  ">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">

@@ -2,9 +2,14 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import svg from '../../assets/hand-holding-medical.svg'
+import useRoll from "../../Hook/useRoll";
+import LoadingPage from "../../Page/loading/LoadingPage";
 const Dashboard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const admin = false
+  const [isAdmin,isLoading]=useRoll()
+if(isLoading){
+  return <LoadingPage></LoadingPage>
+}
 
   return (
     <div className="min-h-screen text-[#0d0e0e] bg-[#fafafa] flex relative">
@@ -23,7 +28,7 @@ const Dashboard = () => {
         <ul className="space-y-4 p-3 ">
             {/* admin route */}
            {
-            admin?<>
+            isAdmin?<>
              <li>
             <NavLink to={"/profile"}>Profile</NavLink>
           </li>
@@ -37,7 +42,7 @@ const Dashboard = () => {
             <li><NavLink>Analytics</NavLink></li>
             <li><NavLink>Profile</NavLink></li>
             <li><NavLink to={'/dashboard/register-camp'}>Registered Camps</NavLink></li>
-            <li><NavLink>Payment History</NavLink></li>
+            <li><NavLink to={'/dashboard/payment-history'}>Payment History</NavLink></li>
             </>
            }
            <div className="divider">~~~</div>

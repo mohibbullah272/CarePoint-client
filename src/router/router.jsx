@@ -13,6 +13,8 @@ import axios from "axios";
 import RegisterCampUser from "../Page/DashboardPage/RegisterCampUser";
 import ManageRegisterCamp from "../Page/DashboardPage/ManageRegisterCamp";
 import Payment from "../Page/DashboardPage/Payment";
+import PaymentHistory from "../Page/DashboardPage/PaymentHistory";
+import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -50,19 +52,27 @@ const router = createBrowserRouter([
             // admin route
             {
                 path:'addCamp',
-                element:<AddCamp></AddCamp>
+                element:<AdminRoute>
+                    <AddCamp></AddCamp>
+                </AdminRoute>
             },
             {
                 path:'manageCamp',
-                element:<ManageCamp></ManageCamp>
+                element:<AdminRoute>
+                    <ManageCamp></ManageCamp>
+                </AdminRoute>
             },
             {
                 path:'updateCamp/:id',
-                element:<UpdateCamp></UpdateCamp>
+                element:<AdminRoute>
+                    <UpdateCamp></UpdateCamp>
+                </AdminRoute>
             },
             {
                 path:'manage-register-camp',
-                element:<ManageRegisterCamp></ManageRegisterCamp>
+                element:<AdminRoute>
+                    <ManageRegisterCamp></ManageRegisterCamp>
+                </AdminRoute>
             },
             // participant route
             {
@@ -72,6 +82,10 @@ const router = createBrowserRouter([
             {
                 path:'payment/:id',
                 element:<Payment></Payment>
+            },
+            {
+                path:'payment-history',
+                element:<PaymentHistory></PaymentHistory>
             }
         ])
     }
