@@ -16,7 +16,7 @@ if(isLoading){
       {/* Sidebar */}
       
       <div
-        className={`fixed top-0 min-h-screen left-0  w-64  bg-base-300  z-50 transform ${
+        className={`fixed top-0 min-h-screen left-0  w-64  bg-[#a8bdbc80]  z-50 transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:w-1/4`}
       >
@@ -25,38 +25,153 @@ if(isLoading){
           <img src={svg} className="w-8 h-8" alt="" />
           CarePoint</Link>
      </div>
-        <ul className="space-y-4 p-3 ">
-            {/* admin route */}
-           {
-            isAdmin?<>
-             <li>
-            <NavLink to={"/dashboard/Profile"}>Profile</NavLink>
-          </li>
-            <li><NavLink to={'/dashboard/addCamp'}>Add A Camp</NavLink></li>
-            <li><NavLink to={'/dashboard/manageCamp'}>Manage Camps</NavLink></li>
-            <li><NavLink to={'/dashboard/manage-register-camp'}>Manage Registered Camps </NavLink></li>
-            
-            </>:
-            // user route
-            <>
-            <li><NavLink>Analytics</NavLink></li>
-            <li><NavLink>Profile</NavLink></li>
-            <li><NavLink to={'/dashboard/register-camp'}>Registered Camps</NavLink></li>
-            <li><NavLink to={'/dashboard/payment-history'}>Payment History</NavLink></li>
-            </>
-           }
-           <div className="divider">~~~</div>
-          <li>
-            <NavLink to={"/"}>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/dashboard"}>Available Camp</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/settings"}>Terms & condition</NavLink>
-          </li>
- 
-        </ul>
+     <ul className="space-y-4">
+        {/* Admin route */}
+        {isAdmin ? (
+          <>
+            <li>
+              <NavLink
+                to={"/dashboard/Profile"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold p-2 text-white"
+                    : "text-gray-900 font-bold p-2"
+                }
+              >
+                Profile
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={'/dashboard/addCamp'}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold p-2 text-white"
+                    : "text-gray-900 font-bold p-2"
+                }
+              >
+                Add A Camp
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={'/dashboard/manageCamp'}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold p-2 text-white"
+                    : "text-gray-900 font-bold p-2"
+                }
+              >
+                Manage Camps
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={'/dashboard/manage-register-camp'}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold p-2 text-white"
+                    : "text-gray-900 font-bold p-2"
+                }
+              >
+                Manage Registered Camps
+              </NavLink>
+            </li>
+          </>
+        ) : (
+          // User route
+          <>
+            <li>
+              <NavLink
+                to={'/dashboard/analytics'}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold p-2 text-white"
+                    : "text-gray-900 font-bold p-2"
+                }
+              >
+                Analytics
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={'/dashboard/profile'}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold p-2 text-white"
+                    : "text-gray-900 font-bold p-2"
+                }
+              >
+                Profile
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={'/dashboard/register-camp'}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold p-2 text-white"
+                    : "text-gray-900 font-bold p-2"
+                }
+              >
+                Registered Camps
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={'/dashboard/payment-history'}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold p-2 text-white"
+                    : "text-gray-900 font-bold p-2"
+                }
+              >
+                Payment History
+              </NavLink>
+            </li>
+          </>
+        )}
+
+        <div className="divider">~~~</div>
+
+        {/* Common links */}
+        <li>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              isActive
+                ? "font-bold p-2 text-white"
+                : "text-gray-900 font-bold p-2"
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={"/availableCamp"}
+            className={({ isActive }) =>
+              isActive
+                ? "font-bold p-2 text-white"
+                : "text-gray-900 font-bold p-2"
+            }
+          >
+            Available Camp
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={"/settings"}
+            className={({ isActive }) =>
+              isActive
+                ? "font-bold p-2 text-white"
+                : "text-gray-900 font-bold p-2"
+            }
+          >
+            Terms & Condition
+          </NavLink>
+        </li>
+      </ul>
       </div>
 
   

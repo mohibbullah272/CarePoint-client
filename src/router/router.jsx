@@ -16,6 +16,7 @@ import Payment from "../Page/DashboardPage/Payment";
 import PaymentHistory from "../Page/DashboardPage/PaymentHistory";
 import AdminRoute from "./AdminRoute";
 import Profile from "../Page/DashboardPage/Profile";
+import Analytics from "../Page/DashboardPage/Analytics";
 
 
 const router = createBrowserRouter([
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
                 
             },
             // participant route
+            {
+                path:'analytics',
+                element:<Analytics></Analytics>
+            },
             {
                 path:'register-camp',
                 element:<RegisterCampUser></RegisterCampUser>

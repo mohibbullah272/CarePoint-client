@@ -105,7 +105,7 @@ const JoinCampForm = ({camp,close,refetch}) => {
     <span className="label-text">Gender</span>
   </label>
   <select {...register('gender')} className="select w-full input-bordered" defaultValue="" required>
-    <option disabled selected value="">
+    <option disabled  value="">
       Select Gender
     </option>
     <option value="male">Male</option>

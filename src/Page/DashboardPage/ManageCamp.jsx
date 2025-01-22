@@ -4,16 +4,30 @@ import useCamp from "../../Hook/useCamp";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ManageCamp = () => {
     const [camp,isLoading,refetch]=useCamp()
     const axiosSecure = useAxiosSecure()
-    const handleDelete=async(id)=>{
-    const {data}= await axiosSecure.delete(`/remove-camp/${id}`)
-    if(data.deletedCount){
-      toast.success('camp deleted successfully')
-      refetch()
-    }
+    const handleDelete=(id)=>{
+      Swal.fire({
+        title: "Are you sure?",
+        text: "once delete data can be reverted!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#8fb0ae",
+        cancelButtonColor: "#9CA3AF",
+        confirmButtonText: "Yes, delete it!"
+      }).then(async(result) => {
+        if (result.isConfirmed) {
+          const {data}= await axiosSecure.delete(`/remove-camp/${id}`)
+          if(data.deletedCount){
+            toast.success('camp deleted successfully')
+            refetch()
+          }
+        }
+      });
+ 
     }
     if(isLoading){
         return <p className="text-3xl">Please wait</p>

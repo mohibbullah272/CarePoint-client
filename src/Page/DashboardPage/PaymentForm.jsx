@@ -58,7 +58,7 @@ const PaymentForm = ({id}) => {
                 transId:paymentIntent?.id
             })
        
-           toast.success(`payment success your transition id ${paymentIntent.id}`)
+           toast.success(`payment success your transaction id ${paymentIntent.id}`)
             navigate('/dashboard/payment-history')
          
           }
