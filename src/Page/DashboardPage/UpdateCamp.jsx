@@ -1,14 +1,17 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SharedTitle from "../../Components/SharedTitle";
 import Datetime from "react-datetime";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const UpdateCamp = () => {
     const {id}=useParams()
     const axiosSecure = useAxiosSecure()
+    const {user}=useContext(AuthContext)
     const {data:campDataOld={},isLoading}=useQuery({
         queryKey:['updateCamp',id],
         queryFn:async()=>{
@@ -16,19 +19,38 @@ const UpdateCamp = () => {
             return data
         }
     })
-  
+  const navigate= useNavigate()
     const [dateTime,setDateTime]=useState(null)
-    console.log(id)
+
         const {
         register,
         handleSubmit,
-        watch,
-        reset,
         formState: { errors },
       } = useForm()
-      const uploadedFile = watch('image');
-      console.log(uploadedFile)
-      const onSubmit = (data)=>console.log(data)
+      
+     
+      const onSubmit = async(data)=>{
+        const updateInfo={
+           email : user?.email,
+           adminName:user?.displayName,
+       camp_name : data?.camp_name,
+       camp_fee :data?.camp_fee,
+      professional_name : data?.professional_name,
+       location :data?.location,
+       date_time:dateTime?._d,
+        description :data?.description,
+       image : data?.image,
+       participant_count :campDataOld?.participant_count
+
+        }
+        const {data:info}= await axiosSecure.patch(`/updateCamp/${id}`,updateInfo)
+       if(info.modifiedCount){
+        toast.success('camp details updated')
+        navigate('/dashboard/manageCamp')
+
+       }
+      
+      }
     return (
         <div>
             <SharedTitle title={'Update Camp'}></SharedTitle>
@@ -68,8 +90,8 @@ const UpdateCamp = () => {
           <label className="label">
             <span className="label-text">Chose a Image</span>
           </label>
-          <img className="w-10 h-10" src={campDataOld?.image} alt="" />
-          <input  type="file" {...register('image')} className="w-full  border border-gray-300 bg-white text-gray-700 rounded-lg p-2 shadow-sm focus:outline-none focus:ring focus:ring-blue-300 transition duration-300" required/>
+       
+        <input type="text" defaultValue={campDataOld?.image} className="input w-full input-bordered" {...register('image')} required  />
         </div>
       <div className="form-control md:w-1/2">
           <label className="label">
@@ -87,7 +109,7 @@ const UpdateCamp = () => {
           <label className="label">
             <span className="label-text">description</span>
           </label>
-          <input type="text"  placeholder="description" {...register('description')} className="input w-full input-bordered" required />
+          <input type="text" defaultValue={campDataOld?.description} placeholder="description" {...register('description')} className="input w-full input-bordered" required />
         </div>
      
         

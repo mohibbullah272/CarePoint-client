@@ -4,7 +4,7 @@ import ReactStars from 'react-stars';
 
 const FeedbackCard = ({ feedbackData }) => {
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder>
+    <Card  shadow="sm" padding="lg" radius="md" withBorder>
    
       <Group position="apart" mb="md">
         <Group>
@@ -17,7 +17,7 @@ const FeedbackCard = ({ feedbackData }) => {
       </Group>
 
       <Text size="sm" weight={500} mb="xs">
-        Camp Name: {feedbackData.camp_name || "Unknown"}
+        {feedbackData.camp_name || "Unknown"}
       </Text>
 
     

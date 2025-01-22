@@ -17,12 +17,14 @@ import PaymentHistory from "../Page/DashboardPage/PaymentHistory";
 import AdminRoute from "./AdminRoute";
 import Profile from "../Page/DashboardPage/Profile";
 import Analytics from "../Page/DashboardPage/Analytics";
+import NotFound from "../Page/NotFound";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Layout></Layout>,
+        errorElement:<NotFound></NotFound>,
         children:([
             {
                 path:'/',
@@ -50,6 +52,7 @@ const router = createBrowserRouter([
     {
         path:"/dashboard",
         element:<Dashboard></Dashboard>,
+        errorElement:<NotFound></NotFound>,
         children:([
             // admin route
             {
@@ -82,7 +85,6 @@ const router = createBrowserRouter([
                     <Profile></Profile>
                 
             },
-            // participant route
             {
                 path:'analytics',
                 element:<Analytics></Analytics>
