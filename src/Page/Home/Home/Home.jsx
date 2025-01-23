@@ -1,6 +1,7 @@
 import Banner from "../Banner";
 import Feedback from "../Feedback";
 import PopularCamp from "../PopularCamp";
+import TopCamp from "../TopCamp";
 
 
 const Home = () => {
@@ -8,7 +9,9 @@ const Home = () => {
         <div>
         <Banner></Banner>
         <PopularCamp></PopularCamp>
+        <TopCamp></TopCamp>
         <Feedback></Feedback>
+
         </div>
     );
 };

@@ -161,7 +161,7 @@ if(isLoading){
         </li>
         <li>
           <NavLink
-            to={"/settings"}
+            to={"/dashboard/termsAndCondition"}
             className={({ isActive }) =>
               isActive
                 ? "font-bold p-2 text-white"

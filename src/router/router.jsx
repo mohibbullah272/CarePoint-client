@@ -20,6 +20,7 @@ import Analytics from "../Page/DashboardPage/Analytics";
 import NotFound from "../Page/NotFound";
 import AboutUs from "../Page/AboutUs";
 import Contact from "../Page/Contact";
+import TermsAndConditions from "../Page/TermsCondition";
 
 
 const router = createBrowserRouter([
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
                 element:<AdminRoute>
                     <UpdateCamp></UpdateCamp>
                 </AdminRoute>
+            },
+            {
+                path:'termsAndCondition',
+                element:<TermsAndConditions></TermsAndConditions>
             },
             {
                 path:'manage-register-camp',
