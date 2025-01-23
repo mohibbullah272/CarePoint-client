@@ -1,15 +1,17 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { uploadImage } from "../Hook/imageUpload";
 import SocialLogin from "../Shared/SocialLogin";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const Signup = () => {
         const [showPass,setShowPass]=useState(false)
         const [loading,setLoading]=useState(false)
+        const navigate= useNavigate()
         const {register:signUpWithEmail,updateUser}=useContext(AuthContext)
         const {
           register,
@@ -30,15 +32,17 @@ const Signup = () => {
          console.log(updateUserProfile)
         }
          catch(err){
-          console.log(err)
+        toast.error('something went wrong !!')
          }
          finally{
           setLoading(false)
+          toast.success('Login successfuly complete')
+          navigate('/')
          } 
         }
 
     return (
-        <div className="min-h-[calc(100vh-68px)] flex flex-col items-center justify-center relative" style={{
+        <div className="min-h-[calc(100vh-68px)] p-10 flex flex-col items-center justify-center relative" style={{
             background:`url("https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,
             backgroundPosition:'cover',
             backgroundSize:'cover',

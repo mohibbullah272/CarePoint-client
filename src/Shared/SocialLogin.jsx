@@ -1,22 +1,28 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { FaGoogle } from 'react-icons/fa';
 
 const SocialLogin = () => {
     const {loginWithGoogle}=useContext(AuthContext)
+    const navigate = useNavigate()
     const handleLogin=()=>{
         loginWithGoogle()
         .then(result=>{
-            console.log(result)
+           toast.success('Sign in successfull')
+           navigate('/')
         })
         .catch(err=>{
-            console.log(err)
+        toast.error('someting went wrong !!')
         })
     }
     return (
-        <div onClick={handleLogin} className="flex text-left items-center  btn btn-outline">
-        <img width="30" height="30"  className="ml-20" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
-        <p>sign up with Google</p>
-        </div>
+     
+   <button onClick={handleLogin} className="btn text-center btn-outline w-full">
+   <p className='flex justify-center items-center gap-3'><FaGoogle></FaGoogle>sign up with Google</p>
+   </button>
+     
     );
 };
 

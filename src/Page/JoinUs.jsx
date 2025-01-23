@@ -1,13 +1,15 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import SocialLogin from "../Shared/SocialLogin";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const JoinUs = () => {
         const [showPass,setShowPass]=useState(false)
         const {login}=useContext(AuthContext)
+        const navigate = useNavigate()
         const {
             register,
             handleSubmit,
@@ -18,15 +20,16 @@ const JoinUs = () => {
             const password= data?.password
             login(email,password)
             .then(result=>{
-              console.log(result)
+             toast.success('login successfull')
+             navigate('/')
             })
             .catch(err=>{
-              console.log(err)
+           toast.error('something went wrong !!')
             })
           }
 
     return (
-        <div className="min-h-[calc(100vh-68px)] flex flex-col items-center justify-center relative" style={{
+        <div className="min-h-[calc(100vh-68px)] flex flex-col items-center p-10 justify-center relative" style={{
             background:`url("https://images.pexels.com/photos/8413190/pexels-photo-8413190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,
             backgroundPosition:'cover',
             backgroundSize:'cover',

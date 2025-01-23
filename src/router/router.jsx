@@ -18,6 +18,8 @@ import AdminRoute from "./AdminRoute";
 import Profile from "../Page/DashboardPage/Profile";
 import Analytics from "../Page/DashboardPage/Analytics";
 import NotFound from "../Page/NotFound";
+import AboutUs from "../Page/AboutUs";
+import Contact from "../Page/Contact";
 
 
 const router = createBrowserRouter([
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
             {
                 path:'signup',
                 element:<Signup></Signup>
+            },
+            {
+                path:'aboutUs',
+                element:<AboutUs></AboutUs>
+            },
+            {
+                path:'contact',
+                element:<Contact></Contact>
             }
         ])
     },
