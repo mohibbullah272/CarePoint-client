@@ -75,7 +75,8 @@ const ManageRegisterCamp = () => {
  
    
   </div>
-      <div>
+      <div data-aos="fade-up"
+     data-aos-duration="2000">
         <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>

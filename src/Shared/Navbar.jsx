@@ -7,7 +7,7 @@ const Navbar = () => {
    const handleLogout=()=>{
     logout()
     .then(()=>{
-      console.log('done logout')
+      console.log('logout')
     })
    }
     const links=<>

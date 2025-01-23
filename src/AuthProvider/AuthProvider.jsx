@@ -25,7 +25,6 @@ const loginWithGoogle=()=>{
     return signInWithPopup(auth,provider)
 }
 const updateUser=async(name,photo)=>{
-    setLoading(true)
     return updateProfile(auth.currentUser,{
         displayName:name,
         photoURL:photo
@@ -35,39 +34,45 @@ const updateUser=async(name,photo)=>{
 const logout = ()=>{
     return signOut(auth)
 }
-useEffect(()=>{
-    const unsubscribe= onAuthStateChanged(auth,currentUser=>{
-        if(currentUser?.email){
-            setUser(currentUser)
-            setLoading(false)
-            const userInfo = { email: currentUser.email };
-            axiosPublic.post('/jwt', userInfo)
-                .then(res => {
-                    if (res.data.token) {
-                        localStorage.setItem('access-token', res.data.token);
-                    }
-                })
-            setTimeout(() => {
-                axiosPublic.post(`/add-user/${currentUser?.email}`,{
-                    name:currentUser?.displayName,
-                    email:currentUser?.email,
-                    photo:currentUser?.photoURL,
-                    role:"participant"
+useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+        if (currentUser?.email) {
+            setUser(currentUser);
 
-                })
-                .then(res=>console.log(res.data))
-            }, 1000);
+            const userInfo = { email: currentUser.email };
+
+            try {
+            
+                const tokenResponse = await axiosPublic.post('/jwt', userInfo);
+                if (tokenResponse.data.token) {
+                    localStorage.setItem('access-token', tokenResponse.data.token);
+                }
+
+             
+                await axiosPublic.post(`/add-user/${currentUser.email}`, {
+                    name: currentUser.displayName,
+                    email: currentUser.email,
+                    photo: currentUser.photoURL,
+                    role: "participant"
+                });
+
+                console.log("User added successfully");
+            } catch (error) {
+                console.error("Error in auth operations:", error);
+            }
+        } else {
+            setUser(null);
+            localStorage.removeItem('access-token');
         }
-        else{
-           setUser(null)
-           localStorage.removeItem('access-token')
-        }
-  
-    })
-    return ()=>{
-        unsubscribe()
-    }
-},[])
+
+        setLoading(false)
+    });
+
+    return () => {
+        unsubscribe(); 
+    };
+}, []);
+
 
 
     const authInfo={

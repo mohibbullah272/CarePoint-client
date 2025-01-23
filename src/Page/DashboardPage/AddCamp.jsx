@@ -47,12 +47,12 @@ try{
         
     }
   const {data} = await axiosSecure.post('/add-camp',campData)
-  console.log(data)
+
   if(data.insertedId){
     toast.success('New Camp uploaded successful')
   }
 }catch(err){
-    console.log(err)
+   toast.error('something went wrong')
 }
 finally{
     setLoading(false)
@@ -61,10 +61,10 @@ finally{
       }
 
     return (
-        <div className="text-[#0d0e0e]">
+        <div  className="text-[#0d0e0e]">
             <SharedTitle title={'Add New Camp'}></SharedTitle>
 
-            <div>
+            <div data-aos="zoom-out">
       <form onSubmit={handleSubmit(onSubmit)}>
       <div className="md:flex gap-5">
       <div className="form-control md:w-1/2">

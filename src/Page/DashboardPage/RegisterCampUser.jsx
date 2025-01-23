@@ -26,7 +26,7 @@ const RegisterCampUser = () => {
     const {data:camps,refetch,isLoading}=useQuery({
         queryKey:["registerCampUser",user?.email,currentPage,search],
         queryFn:async()=>{
-            const {data}=await axios(`http://localhost:8500/register-camp?email=${user?.email}&page=${currentPage}&limit=10&search=${search}`)
+            const {data}=await axios(`https://medical-camp-server-theta.vercel.app/register-camp?email=${user?.email}&page=${currentPage}&limit=10&search=${search}`)
             setTotalPage(Math.ceil(data.total / 10))
             return data.data
         }
@@ -64,7 +64,7 @@ const RegisterCampUser = () => {
             })
             toast.success('Thanks for your feedback')
         }catch(err){
-            console.log(err)
+          toast.error('something went wrong')
         }
         finally{
             setOpened(false); 
@@ -127,7 +127,8 @@ const RegisterCampUser = () => {
  
    
   </div>
-            <div className="overflow-x-auto">
+            <div data-aos="fade-up"
+     data-aos-duration="2000" className="overflow-x-auto">
   <table className="table w-full">
     <thead>
       <tr>

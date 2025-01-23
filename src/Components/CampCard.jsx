@@ -7,7 +7,7 @@ const CampCard = ({camp}) => {
     const {_id,professional_name,location,description,camp_name,camp_fee,date_time,
         image,participant_count}=camp || {}
     return (
-        <div className="card flex flex-col">
+        <div data-aos="fade-right" className="card flex flex-col">
         <figure>
           <img
           className="w-full h-[150px] object-cover"

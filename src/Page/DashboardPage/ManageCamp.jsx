@@ -35,7 +35,8 @@ const ManageCamp = () => {
     return (
         <div className="max-w-7xl mx-auto">
         <SharedTitle title={'Mange Camps'}></SharedTitle>
-        <div>
+        <div data-aos="fade-up"
+     data-aos-duration="2000">
             <h3 className="text-2xl font-semibold mb-5">Total Camp {camp?.length}</h3>
             <div className="overflow-x-auto rounded-t-xl">
   <table className="table">

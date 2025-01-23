@@ -1,10 +1,20 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import svg from '../../assets/hand-holding-medical.svg'
 import useRoll from "../../Hook/useRoll";
 import LoadingPage from "../../Page/loading/LoadingPage";
+import Aos from "aos";
+import 'aos/dist/aos.css';
 const Dashboard = () => {
+    useEffect(()=>{
+          Aos.init(
+          {
+              delay:200
+          }
+          )
+          
+      },[])
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdmin,isLoading]=useRoll()
 if(isLoading){

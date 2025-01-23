@@ -9,7 +9,7 @@ const useUserProfile = () => {
     const {data:profile,isLoading,refetch}=useQuery({
         queryKey:["userProfiles",user?.email],
         queryFn:async()=>{
-            const {data}= await axios(`http://localhost:8500/user-profile?email=${user?.email}`)
+            const {data}= await axios(`https://medical-camp-server-theta.vercel.app/user-profile?email=${user?.email}`)
             return data
         }
     })

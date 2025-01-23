@@ -20,7 +20,7 @@ const CampDetails = () => {
     const {data:campData,isLoading,refetch}=useQuery({
       queryKey:["campDetails",id],
       queryFn:async()=>{
-        const {data} = await axios(`http://localhost:8500/camp-details/${id}`)
+        const {data} = await axios(`https://medical-camp-server-theta.vercel.app/camp-details/${id}`)
         return data
       }
     })

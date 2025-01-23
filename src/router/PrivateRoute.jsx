@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({children}) => {
 const {user,loading}=useContext(AuthContext)
+console.log(loading)
 if(loading){
     return <LoadingPage></LoadingPage>
 }

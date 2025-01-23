@@ -13,13 +13,13 @@ const PaymentForm = ({id}) => {
     const navigate = useNavigate()
     const [camp,setCamp]=useState(null)
     useEffect(()=>{
-        axios(`http://localhost:8500/payment-camp/${id}`)
+        axios(`https://medical-camp-server-theta.vercel.app/payment-camp/${id}`)
         .then(res=> setCamp(res.data))
     },[id])
     const handlePayment = async () => {
         try {
          
-          const { data } = await axios.post("http://localhost:8500/create-payment-intent", {
+          const { data } = await axios.post("https://medical-camp-server-theta.vercel.app/create-payment-intent", {
             amount: camp.camp_fee * 100, 
             id
           });
@@ -44,12 +44,12 @@ const PaymentForm = ({id}) => {
     
           if (paymentIntent.status === "succeeded") {
           
-          await axios.patch("http://localhost:8500/update-status", {
+          await axios.patch("https://medical-camp-server-theta.vercel.app/update-status", {
                 id,
                     payment_status: "paid",
                   });
     
-          await axios.post(`http://localhost:8500/add-payment-history`,{
+          await axios.post(`https://medical-camp-server-theta.vercel.app/add-payment-history`,{
                 camp_name:camp?.camp_name,
                 fee:camp?.camp_fee,
                 payment_status:'paid',

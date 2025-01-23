@@ -27,9 +27,9 @@ const Signup = () => {
           setLoading(true)
           const image = await uploadImage(imageFile)
          const result=await signUpWithEmail(email,password)
-         console.log(result)
+        
          const updateUserProfile= await updateUser(name,image)
-         console.log(updateUserProfile)
+      
         }
          catch(err){
         toast.error('something went wrong !!')

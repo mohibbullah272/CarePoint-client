@@ -6,7 +6,7 @@ const useCamp = () => {
     const {data:camp,isLoading,refetch}=useQuery({
         queryKey:["camp"],
         queryFn:async()=>{
-            const {data}=await axios('http://localhost:8500/all-camp')
+            const {data}=await axios('https://medical-camp-server-theta.vercel.app/all-camp')
             return data
         }
     })

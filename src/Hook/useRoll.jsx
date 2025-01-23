@@ -9,7 +9,7 @@ const useRoll = () => {
     const {data:isAdmin,isLoading}=useQuery({
         queryKey:["isAdmin",user?.email],
         queryFn:async()=>{
-            const {data} = await axios(`http://localhost:8500/admin/${user?.email}`)
+            const {data} = await axios(`https://medical-camp-server-theta.vercel.app/admin/${user?.email}`)
             return data
         }
     })

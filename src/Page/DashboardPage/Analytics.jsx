@@ -65,24 +65,25 @@ const Analytics = () => {
         <div className="p-6 sm:p-10 md:p-12 rounded-xl max-w-5xl mx-auto ">
             <SharedTitle title="See Your Activity" />
             
-            {/* Stats Container at the Top with DaisyUI */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                {/* Total Registrations */}
-                <div className="stat bg-[#0d0e0e] text-white rounded-xl p-6 sm:p-8 shadow-xl">
+         
+                <div data-aos="fade-right" 
+                data-aos-duration="2000" 
+                className="stat bg-[#0d0e0e] text-white rounded-xl p-6 sm:p-8 shadow-xl">
                     <div className="stat-title text-xl text-white/80 font-semibold">Total Registrations</div>
                     <div className="stat-value text-3xl sm:text-4xl text-white/80  font-bold">{totalRegistrations}</div>
                     <div className="stat-desc text-sm sm:text-base text-white/80 ">Registrations in different camps</div>
                 </div>
-                
-                {/* Total Cost */}
-                <div className="stat bg-[#7e9695] text-white rounded-xl p-6 sm:p-8 shadow-xl">
+               
+                <div data-aos="fade-left" data-aos-duration="2000" className="stat bg-[#7e9695] text-white rounded-xl p-6 sm:p-8 shadow-xl">
                     <div className="stat-title text-xl  font-semibold">Total Cost</div>
                     <div className="stat-value text-3xl sm:text-4xl font-bold">${totalCost}</div>
                     <div className="stat-desc text-sm sm:text-base">Total cost for all camps</div>
                 </div>
             </div>
 
-            {/* Bar Chart for Camp Registrations */}
+           
             <ResponsiveContainer width="100%" height={400}>
                 <BarChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />

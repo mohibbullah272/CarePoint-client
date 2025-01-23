@@ -39,7 +39,7 @@ const JoinCampForm = ({camp,close,refetch}) => {
       await axiosPublic.post('/join-camp',joiningData)
    
     }catch(err){
-        console.log(err)
+        toast.error('something went wrong')
     }finally{
         setLoading(false)
         close()

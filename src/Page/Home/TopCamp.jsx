@@ -17,7 +17,7 @@ const TopCamp = () => {
         }
     })
     return (
-        <div className='my-20'>
+        <div data-aos="fade-left" className='my-20'>
             <h3 className='text-3xl text-center text-black mb-10'>Budget Freindly Camps</h3>
             <Swiper
         slidesPerView={3}
@@ -50,7 +50,7 @@ const TopCamp = () => {
     {
         camps?.map(camp=>    <SwiperSlide key={camp?._id}>
      <Link to={`/camp-details/${camp?._id}`}>
-     <div className="relative group hover:transform hover:-translate-y-2 hover:scale-105 transition duration-300 ease-in-out">
+     <div  className="relative group hover:transform hover:-translate-y-2 hover:scale-105 transition duration-300 ease-in-out">
   
   <img
     className="h-[400px] object-cover w-full"

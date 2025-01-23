@@ -14,9 +14,9 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Profile = () => {
     const [opened, { open, close }] = useDisclosure(false);
     const axiosSecure = useAxiosSecure()
-    const [profile,isLoading,refetch]=useUserProfile()
+    const [profile,,refetch]=useUserProfile()
     const { updateUser}=useContext(AuthContext)
-    console.log(profile)
+    
     const {
         register,
         handleSubmit,
@@ -42,9 +42,7 @@ const Profile = () => {
      refetch()
      close()
       }
-      if(isLoading){
-        return <LoadingPage></LoadingPage>
-    }
+   
     return (
         <div>
             <Modal opened={opened} onClose={close} title="Profile Update">
@@ -113,7 +111,8 @@ const Profile = () => {
         </div>
       </form>
             </Modal>
-        <div className="bg-[#8fb0ae8c] relative flex flex-col w-full items-center">
+        <div data-aos="fade-up"
+     data-aos-duration="2000" className="bg-[#8fb0ae8c] relative flex flex-col w-full items-center">
             <p className="text-white absolute top-2 right-2 rounded-3xl p-1 bg-stone-500/30">{profile?.role}</p>
    <div className="relative border-4 mt-10 p-2 rounded-full">
     <img src={profile?.photo} className="w-48 object-cover rounded-full" alt="user" />

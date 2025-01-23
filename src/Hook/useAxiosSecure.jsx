@@ -4,7 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-    baseURL:'http://localhost:8500'
+    baseURL:'https://medical-camp-server-theta.vercel.app'
 })
 
 const useAxiosSecure = () => {

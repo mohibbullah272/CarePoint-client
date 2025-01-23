@@ -8,7 +8,7 @@ const PopularCamp = () => {
     const {data:camps}=useQuery({
         queryKey:['popularCamp'],
         queryFn:async()=>{
-            const {data} = await axios(`http://localhost:8500/popularCamp`)
+            const {data} = await axios(`https://medical-camp-server-theta.vercel.app/popularCamp`)
             return data
         }
     })

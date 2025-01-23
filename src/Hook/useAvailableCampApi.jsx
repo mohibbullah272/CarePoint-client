@@ -6,7 +6,7 @@ const useAvailableCampApi = (search,sort) => {
     const {data:camps,isLoading,refetch}=useQuery({
         queryKey:["availableCamps",search,sort],
         queryFn:async()=>{
-            const {data} = await axios(`http://localhost:8500/available-camp?search=${search}&&sort=${sort}`)
+            const {data} = await axios(`https://medical-camp-server-theta.vercel.app/available-camp?search=${search}&&sort=${sort}`)
             return data
         }
     })
