@@ -13,7 +13,7 @@ const Feedback = () => {
         }
     })
     return (
-       <div>
+       <div className="my-20">
         <h3 className="text-3xl text-center text-black">What Our Customers Say</h3>
          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:p-10 p-5 gap-5">
             {

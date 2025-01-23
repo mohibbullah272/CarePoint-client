@@ -116,7 +116,7 @@ const Profile = () => {
         <div className="bg-[#8fb0ae8c] relative flex flex-col w-full items-center">
             <p className="text-white absolute top-2 right-2 rounded-3xl p-1 bg-stone-500/30">{profile?.role}</p>
    <div className="relative border-4 mt-10 p-2 rounded-full">
-    <img src={profile?.photo} className="w-48 rounded-full" alt="user" />
+    <img src={profile?.photo} className="w-48 object-cover rounded-full" alt="user" />
     <button onClick={open} className="absolute bottom-8 right-0 text-2xl text-gray-900"><FaEdit /></button>
    </div>
    <div className="text-center space-y-2 ">

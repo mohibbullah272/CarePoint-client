@@ -21,6 +21,7 @@ import NotFound from "../Page/NotFound";
 import AboutUs from "../Page/AboutUs";
 import Contact from "../Page/Contact";
 import TermsAndConditions from "../Page/TermsCondition";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -68,21 +69,27 @@ const router = createBrowserRouter([
             // admin route
             {
                 path:'addCamp',
-                element:<AdminRoute>
+                element:<PrivateRoute>
+                    <AdminRoute>
                     <AddCamp></AddCamp>
                 </AdminRoute>
+                </PrivateRoute>
             },
             {
                 path:'manageCamp',
-                element:<AdminRoute>
+                element:<PrivateRoute>
+                    <AdminRoute>
                     <ManageCamp></ManageCamp>
                 </AdminRoute>
+                </PrivateRoute>
             },
             {
                 path:'updateCamp/:id',
-                element:<AdminRoute>
+                element:<PrivateRoute>
+                    <AdminRoute>
                     <UpdateCamp></UpdateCamp>
                 </AdminRoute>
+                </PrivateRoute>
             },
             {
                 path:'termsAndCondition',
@@ -90,31 +97,43 @@ const router = createBrowserRouter([
             },
             {
                 path:'manage-register-camp',
-                element:<AdminRoute>
+                element:<PrivateRoute>
+                    <AdminRoute>
                     <ManageRegisterCamp></ManageRegisterCamp>
                 </AdminRoute>
+                </PrivateRoute>
             },
             {
                 path:'Profile',
                 element:
-                    <Profile></Profile>
+                   <PrivateRoute>
+                     <Profile></Profile>
+                   </PrivateRoute>
                 
             },
             {
                 path:'analytics',
-                element:<Analytics></Analytics>
+                element:<PrivateRoute>
+                    <Analytics></Analytics>
+                </PrivateRoute>
             },
             {
                 path:'register-camp',
-                element:<RegisterCampUser></RegisterCampUser>
+                element:<PrivateRoute>
+                    <RegisterCampUser></RegisterCampUser>
+                </PrivateRoute>
             },
             {
                 path:'payment/:id',
-                element:<Payment></Payment>
+                element:<PrivateRoute>
+                    <Payment></Payment>
+                </PrivateRoute>
             },
             {
                 path:'payment-history',
-                element:<PaymentHistory></PaymentHistory>
+                element:<PrivateRoute>
+                    <PaymentHistory></PaymentHistory>
+                </PrivateRoute>
             }
         ])
     }

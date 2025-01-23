@@ -22,6 +22,8 @@ const Navbar = () => {
      {
       user?     <img
       alt="user"
+      className="object-cover"
+      referrerPolicy="no-referrer"
       src={user?.photoURL} />:<img width="26" height="26" src="https://img.icons8.com/metro/26/user-male-circle.png" alt="user-male-circle"/>
      }
         </div>

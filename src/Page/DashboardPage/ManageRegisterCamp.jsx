@@ -5,14 +5,20 @@ import { MdDeleteForever } from "react-icons/md";
 import LoadingPage from "../loading/LoadingPage";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import { CiSearch } from "react-icons/ci";
 
 const ManageRegisterCamp = () => {
   const axiosSecure = useAxiosSecure();
+  const [search,setSearch]=useState('')
+  const [currentPage,setCurrentPage]=useState(1)
+  const [totalPage,setTotalPage]=useState(1)
   const { data: campData ,refetch,isLoading} = useQuery({
-    queryKey: ["manageRegisterCamp"],
+    queryKey: ["manageRegisterCamp",currentPage,search],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`/manage-register-camp`);
-      return data;
+      const { data } = await axiosSecure.get(`/manage-register-camp?page=${currentPage}&limit=10&search=${search}`);
+      setTotalPage(Math.ceil(data.total / 10))
+      return data.data;
     },
   });
   const removeRegister = (id) => {
@@ -52,13 +58,23 @@ const ManageRegisterCamp = () => {
       });
   }
   
-  if(isLoading){
-    return <LoadingPage></LoadingPage>
-  }
+ 
   return (
     <div>
       <SharedTitle title={"Camp Records"}></SharedTitle>
-
+  <div className="relative w-full">
+    <span className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400">
+    <CiSearch />
+    </span>
+    <input
+      type="text"
+      placeholder="Search..."
+      onChange={(e)=>setSearch(e.target.value)}
+      className="pl-10 pr-10 py-2 border border-gray-300 rounded-lg w-full"
+    />
+ 
+   
+  </div>
       <div>
         <div className="overflow-x-auto">
           <table className="table w-full">
@@ -111,6 +127,33 @@ const ManageRegisterCamp = () => {
                 </tr>
               ))}
             </tbody>
+            <tfoot>
+              <tr>
+              <td colSpan="7" className="text-center">
+ <div className="flex justify-end items-center my-4 space-x-2">
+<button
+  className={`btn btn-sm ${currentPage === 1 ? 'bg-gray-200 text-gray-500' : 'bg-gray-300 text-black'}`}
+onClick={()=>{
+  if(currentPage > 1){
+    setCurrentPage(currentPage -1)
+  }
+}}
+disabled={currentPage ===1}
+>previous</button>
+<span>page {currentPage} of {totalPage}</span>
+<button
+className={`btn btn-sm ${currentPage === totalPage ? 'bg-gray-200 text-gray-500' : 'bg-gray-300 text-black'}`}
+onClick={()=>{
+  if(currentPage < totalPage){
+    setCurrentPage(currentPage + 1)
+  }
+}}
+disabled={currentPage=== totalPage}
+>Next</button>
+ </div>
+        </td>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </div>

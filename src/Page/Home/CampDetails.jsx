@@ -2,16 +2,21 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { FaCalendarAlt, FaLocationArrow } from "react-icons/fa";
 import { FaUserDoctor } from "react-icons/fa6";
 import { MdGroups2 } from "react-icons/md";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
 import JoinCampForm from "../../Components/JoinCampForm";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import LoadingPage from "../loading/LoadingPage";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const CampDetails = () => {
+  const {user}=useContext(AuthContext)
     const {id}=useParams()
+    const navigate = useNavigate()
     const {data:campData,isLoading,refetch}=useQuery({
       queryKey:["campDetails",id],
       queryFn:async()=>{
@@ -19,6 +24,19 @@ const CampDetails = () => {
         return data
       }
     })
+    const handleUserToJoin=()=>{
+      Swal.fire({
+        title: "User login required!!",
+        text: "please login first to join this camp",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#8fb0ae",
+        cancelButtonColor: "#9CA3AF",
+        confirmButtonText: "Login"
+      }).then((result) => {
+       navigate('/joinUs')
+      });
+    }
     const {_id,professional_name,location,description,camp_name,camp_fee,date_time,
         image,participant_count}=campData ||{}
         const [opened, { open, close }] = useDisclosure(false);
@@ -54,7 +72,9 @@ const CampDetails = () => {
           <p className="flex items-center gap-3"><BsCurrencyDollar></BsCurrencyDollar>{camp_fee} </p>
           <p title="participant count " className="flex items-center gap-3 "><MdGroups2 />{participant_count}</p>
           <div className="flex mt-5 justify-end">
-            <button onClick={open} className="primary">
+            <button onClick={()=>{user?open():handleUserToJoin()}
+        
+            } className="primary">
           Join Camp
             </button>
           </div>
