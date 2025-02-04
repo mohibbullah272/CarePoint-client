@@ -32,7 +32,7 @@
 ---
 
 ## 🌐 Live Demo  
-🔗 **[Care Point Live](#)** _([text](https://carepoint-940e4.web.app))_  
+🔗 **[Care Point Live](#)** _(https://carepoint-940e4.web.app)_  
 
 ---
 
