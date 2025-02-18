@@ -23,6 +23,7 @@ import Contact from "../Page/Contact";
 import TermsAndConditions from "../Page/TermsCondition";
 import PrivateRoute from "./PrivateRoute";
 import Support from "../Page/Support";
+import Chat from "../Page/CareBoat";
 
 
 const router = createBrowserRouter([
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
             {
                 path:'contact',
                 element:<Contact></Contact>
+            },
+            {
+                path:'careBoat',
+                element:<Chat></Chat>
             }
         ])
     },

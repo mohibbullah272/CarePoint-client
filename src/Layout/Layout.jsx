@@ -19,7 +19,7 @@ const Layout = () => {
             <header className=" w-full fixed top-0 z-50">
                <Navbar></Navbar>
             </header>
-            <main className="max-w-7xl   mx-auto">
+            <main className="max-w-7xl mt-14  mx-auto">
                 <Outlet></Outlet>
             </main>
             <footer>
