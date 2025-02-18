@@ -1,8 +1,12 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const Support = () => {
     const handleSubmit = (e)=>{
-        e.preventDefaoult()
+        e.preventDefault()
+        const name = e.target.name.value
+        toast.success(`${name} Thanks For reach us we will clarify your problem  as soon as possible `)
+        e.target.reset()
     }
   return (
     <div className="bg-[#fafafa] min-h-screen flex flex-col items-center p-6">
@@ -17,7 +21,8 @@ const Support = () => {
             <label className="block text-[#0d0e0e] font-medium">Name</label>
             <input 
               type="text" 
-              className="w-full border border-[#a8bdbc] rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#7e9695]"
+              name="name"
+              className="w-full border border-[#a8bdbc] rounded-lg p-2 focus:outline-none  focus:ring-2 focus:ring-[#7e9695]"
               placeholder="Enter your name" 
               required
             />

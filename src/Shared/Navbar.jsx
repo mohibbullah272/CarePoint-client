@@ -42,7 +42,7 @@ const Navbar = () => {
    
     </>
     return (
-        <div className="navbar  max-w-7xl mx-auto">
+        <div className="navbar bg-white max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -74,11 +74,10 @@ const Navbar = () => {
           CarePoint</Link>
      </div>
         </div>
-        <div className="navbar-center ">
+      
     
-        </div>
         <div className="navbar-end ">
-        <ul className="menu menu-horizontal hidden lg:flex mr-10 px-1">
+        <ul className="menu menu-horizontal hidden lg:flex mr-5 px-1">
            {
             links
            }

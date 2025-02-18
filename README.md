@@ -13,7 +13,7 @@
 - [🏗 Technology Stack](#-technology-stack)  
 - [📦 Dependencies](#-dependencies)  
 - [🔑 Authentication & Authorization](#-authentication--authorization)  
-- [🤝 Contributing](#-contributing)  
+- [🤝 Organizer info](#-contributing)  
 
 ---
 
@@ -121,10 +121,8 @@ npm run dev
 
 ---
 
-## 🤝 Contributing  
-Want to contribute? Follow these steps:  
+## 🤝 Organizer Info 
+Organizer email : mrzero1@gmail.com
+Organizer password: asdf123
 
-1. **Fork** the repository.  
-2. **Create a new branch** (`feature-xyz`).  
-3. **Commit your changes**.  
-4. **Open a pull request**.  
+
