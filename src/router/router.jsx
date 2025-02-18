@@ -22,6 +22,7 @@ import AboutUs from "../Page/AboutUs";
 import Contact from "../Page/Contact";
 import TermsAndConditions from "../Page/TermsCondition";
 import PrivateRoute from "./PrivateRoute";
+import Support from "../Page/Support";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
                 path:'/camp-details/:id',
                 element:<CampDetails></CampDetails>,
              
+            },
+            {
+                path:'support',
+                element:<Support></Support>
             },
             {
                 path:'joinUs',

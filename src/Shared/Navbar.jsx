@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import navIcon from '../assets/hand-holding-medical.svg'
+import navIcon from '../assets/CarePoint-Icon.png'
 const Navbar = () => {
    const {user,logout}=useContext(AuthContext)
    const handleLogout=()=>{
@@ -14,6 +14,7 @@ const Navbar = () => {
     <li><NavLink to={'/'}>Home</NavLink></li>
     <li><NavLink to={'/availableCamp'}>Available Camp</NavLink></li>
     <li><NavLink to={'/joinUs'}>Join Us</NavLink></li>
+    <li><NavLink to={'/support'}>Support</NavLink></li>
     </>
     const navEnd= <>
  <div className="dropdown dropdown-end">
@@ -32,7 +33,7 @@ const Navbar = () => {
     user &&     <ul
     tabIndex={0}
     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
-      <li className="p-3 bg-gray-100 rounded-md">{user?.displayName}</li>
+   
     <li><Link to={'/dashboard/profile'}>Dashboard</Link></li>
     <li><a onClick={handleLogout}>Logout</a></li>
   </ul>
@@ -41,7 +42,7 @@ const Navbar = () => {
    
     </>
     return (
-        <div className="navbar max-w-7xl mx-auto">
+        <div className="navbar  max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,14 +74,15 @@ const Navbar = () => {
           CarePoint</Link>
      </div>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+        <div className="navbar-center ">
+    
+        </div>
+        <div className="navbar-end ">
+        <ul className="menu menu-horizontal hidden lg:flex mr-10 px-1">
            {
             links
            }
           </ul>
-        </div>
-        <div className="navbar-end">
        {
         navEnd
        }
