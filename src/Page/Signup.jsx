@@ -6,7 +6,7 @@ import { uploadImage } from "../Hook/imageUpload";
 import SocialLogin from "../Shared/SocialLogin";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-
+import bg from '../assets/login-bg.png'
 
 const Signup = () => {
         const [showPass,setShowPass]=useState(false)
@@ -36,23 +36,23 @@ const Signup = () => {
          }
          finally{
           setLoading(false)
-          toast.success('Login successfuly complete')
+          toast.success('Login successfully complete')
           navigate('/')
          } 
         }
 
     return (
-        <div className="min-h-[calc(100vh-68px)] p-10 flex flex-col items-center justify-center relative" style={{
-            background:`url("https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,
+        <div className="min-h-[calc(100vh-68px)] p-5 flex flex-col  items-end " style={{
+            background:`url(${bg})`,
             backgroundPosition:'cover',
             backgroundSize:'cover',
-            objectFit:'cover'
+          backgroundRepeat:'no-repeat'
         }}>
-            <div className="absolute  inset-0 bg-black/50 backdrop-blur-sm"></div>
+          
             <div>
-                <h3 className="text-2xl relative mb-10 text-center text-white">Join Us Today</h3>
+                <h3 className="text-2xl  mr-20  text-black">Join Us Today</h3>
             </div>
-            <div className="bg-white/20 backdrop-blur-2xl mx-auto  w-full max-w-sm  ">
+            <div className="bg-white/20 backdrop-blur-2xl  w-full max-w-sm  ">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
           <label className="label">
