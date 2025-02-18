@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import navIcon from '../assets/CarePoint-Icon.png'
+import './Navbar.css'
 const Navbar = () => {
    const {user,logout}=useContext(AuthContext)
    const handleLogout=()=>{
@@ -11,11 +12,13 @@ const Navbar = () => {
     })
    }
     const links=<>
-    <li><NavLink to={'/'}>Home</NavLink></li>
-    <li><NavLink to={'/availableCamp'}>Available Camp</NavLink></li>
-    <li><NavLink to={'/joinUs'}>Join Us</NavLink></li>
-    <li><NavLink to={'/support'}>Support</NavLink></li>
-    <li><NavLink to={'/careBoat'}>Care bot</NavLink></li>
+    <li><NavLink  to={'/'}>Home</NavLink></li>
+    <li><NavLink  to={'/availableCamp'}>Available Camp</NavLink></li>
+   {
+    !user&& <li><NavLink  to={'/joinUs'}>Join Us</NavLink></li>
+   }
+    <li><NavLink  to={'/support'}>Support</NavLink></li>
+    <li><NavLink  to={'/careBoat'}>Care bot</NavLink></li>
     </>
     const navEnd= <>
  <div className="dropdown dropdown-end">
@@ -43,7 +46,7 @@ const Navbar = () => {
    
     </>
     return (
-        <div className="navbar  bg-white max-w-7xl mx-auto">
+        <div className="navbar  bg-white/30 backdrop-blur-lg max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

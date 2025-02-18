@@ -23,7 +23,7 @@ body {
 }
 
 .primary {
-  background-color: #0284C7; /* Bright Sky Blue */
+  background-color: #7e9695; /* Bright Sky Blue */
   color: #FFFFFF; 
   border: none;
   border-radius: 6px;
@@ -35,12 +35,12 @@ body {
 }
 
 .primary:hover {
-  background-color: #0369A1; 
+  background-color: #7e96955a; 
   transform: scale(1.05); 
 }
 
 .secondary {
-  background-color: #9CA3AF; 
+  background-color: #a8bdbc; 
   color: #FFFFFF; 
   border: none;
   border-radius: 6px;
@@ -57,7 +57,7 @@ body {
 }
 
 .accent {
-  color: #10B981; 
+  color: #8fb0ae; 
   font-weight: bold;
 }
 
