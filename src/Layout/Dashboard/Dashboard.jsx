@@ -1,7 +1,7 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import svg from '../../assets/hand-holding-medical.svg'
+import svg from '../../assets/CarePoint-Icon.png'
 import useRoll from "../../Hook/useRoll";
 import LoadingPage from "../../Page/loading/LoadingPage";
 import Aos from "aos";

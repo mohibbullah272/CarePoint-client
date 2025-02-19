@@ -31,14 +31,14 @@ const CareBoat = () => {
   };
 
   return (
-    <div className="w-full my-28 h-screen flex flex-col items-center bg-[#fafafa] text-[#0d0e0e]">
+    <div className="w-full my-28 h-[500px] flex flex-col items-center bg-[#fafafa] text-[#0d0e0e]">
       {/* Chat Header */}
       <div className="w-full md:max-w-3xl max-w-md bg-[#7e9695] text-white text-lg font-semibold  px-4 shadow-md">CareBoat Chat</div>
       
       {/* Chat Messages */}
       <div
         ref={chatContainerRef}
-        className="w-full md:max-w-3xl max-w-md flex-1 overflow-y-auto p-4 space-y-3 bg-white shadow-md rounded-lg"
+        className="w-full  md:max-w-3xl max-w-md flex-1 overflow-y-auto p-4 space-y-3 bg-white shadow-md rounded-lg"
       >
         {messages.map((msg, index) => (
           <div key={index} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}` }>
