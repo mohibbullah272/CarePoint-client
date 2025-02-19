@@ -7,7 +7,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
 import { useForm } from "react-hook-form";
 import { FaHeart } from "react-icons/fa";
-import LoadingPage from "../loading/LoadingPage";
+import { IoMdMail } from "react-icons/io";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -115,16 +115,22 @@ const Profile = () => {
      data-aos-duration="2000" className="bg-[#8fb0ae8c] relative flex flex-col w-full items-center">
             <p className="text-white absolute top-2 right-2 rounded-3xl p-1 bg-stone-500/30">{profile?.role}</p>
    <div className="relative border-4 mt-10 p-2 rounded-full">
-    <img src={profile?.photo} className="w-48 object-cover rounded-full" alt="user" />
+    <img src={profile?.photo} className="w-48 h-48 bg-cover object-cover rounded-full" alt="user" />
     <button onClick={open} className="absolute bottom-8 right-0 text-2xl text-gray-900"><FaEdit /></button>
    </div>
-   <div className="text-center space-y-2 ">
-    <p className="text-white text-xl">{profile?.name}</p>
+   <div className="text-center space-y-2 mt-4 ">
+    <p className="text-white text-2xl">{profile?.name}</p>
     <p className="text-white ">{profile?.email}</p>
+ 
    </div>
-   {
-    profile?.additional&& <div className="mt-4  p-3">
-    <h3 className="text-2xl text-white font-semibold">--Additional Information--</h3>
+ 
+   
+        </div>
+        <div className="bg-white shadow-lg border border-white p-3 my-10">
+        {
+    profile?.additional&& 
+    <div className="mt-4  p-3">
+    <h3 className="text-2xl  font-semibold">--Additional Information--</h3>
     <ul className="mt-4">
       {
         profile.additional.company &&   <li className="flex items-center gap-3"><IoBagSharp /> {profile?.additional?.company} </li>
@@ -141,8 +147,9 @@ const Profile = () => {
     </ul>
    </div>
    }
-   
+    
         </div>
+  
         </div>
     );
 };

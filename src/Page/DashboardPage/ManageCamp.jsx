@@ -5,6 +5,7 @@ import useAxiosSecure from "../../Hook/useAxiosSecure";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import LoadingPage from "../loading/LoadingPage";
 
 const ManageCamp = () => {
     const [camp,isLoading,refetch]=useCamp()
@@ -30,7 +31,7 @@ const ManageCamp = () => {
  
     }
     if(isLoading){
-        return <p className="text-3xl">Please wait</p>
+        return <LoadingPage></LoadingPage>
     }
     return (
         <div className="max-w-7xl mx-auto">

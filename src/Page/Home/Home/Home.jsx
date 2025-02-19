@@ -15,12 +15,11 @@ const Home = () => {
         <Banner></Banner>
         <PopularCamp></PopularCamp>
         <TopCamp></TopCamp>
-        <OurGoal></OurGoal>
+      
         <UpcomingEvents></UpcomingEvents>
         <OurSuccess></OurSuccess>
+        <OurGoal></OurGoal>
         <Feedback></Feedback>
-  
-     
         <FAQAccordion></FAQAccordion>
         </div>
     );

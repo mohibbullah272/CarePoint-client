@@ -11,21 +11,21 @@ const upcomingEvents = [
     title: "Free Eye Checkup Camp",
     date: "March 15, 2025",
     location: "Dhaka Medical Center",
-    image: "https://i.pravatar.cc/150?img=45",
+    image: "https://images.pexels.com/photos/5752306/pexels-photo-5752306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     id: 2,
     title: "Blood Donation Drive",
     date: "April 5, 2025",
     location: "Chittagong City Hospital",
-    image: "https://i.pravatar.cc/150?img=50",
+    image: "https://images.pexels.com/photos/1164531/pexels-photo-1164531.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     id: 3,
     title: "General Health Camp",
     date: "May 20, 2025",
     location: "Rajshahi Community Hall",
-    image: "https://i.pravatar.cc/150?img=55",
+    image: "https://images.pexels.com/photos/5473223/pexels-photo-5473223.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ];
 
