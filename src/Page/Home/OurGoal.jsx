@@ -8,7 +8,7 @@ const nodes = [
   {
     id: "1",
     position: { x: 250, y: 5 },
-    data: { label: "Our Mission", icon: <FaHeartbeat className='text-red-500 text-2xl' /> },
+    data: { label: "Help to lead healthy life", icon: <FaHeartbeat className='text-red-500 text-2xl' /> },
     type: "input",
   },
   {
@@ -57,7 +57,9 @@ const OurGoal = () => {
       transition={{ duration: 0.8 }}
       className="w-full flex flex-col items-center py-10 "
     >
-    
+    <div>
+        <h3 className="text-3xl text-gray-800">Our Goal</h3>
+    </div>
       <div className="w-full h-[350px]  rounded-xl shadow-lg p-5 ">
         <ReactFlow
           nodes={nodes.map((node) => ({ ...node, data: { ...node.data }, type: "custom" }))}
