@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import navIcon from '../assets/CarePoint-Icon.png'
-import './Navbar.css'
+
 const Navbar = () => {
    const {user,logout}=useContext(AuthContext)
    const handleLogout=()=>{
@@ -12,13 +12,33 @@ const Navbar = () => {
     })
    }
     const links=<>
-    <li><NavLink  to={'/'}>Home</NavLink></li>
-    <li><NavLink  to={'/availableCamp'}>Available Camp</NavLink></li>
+    <li><NavLink  className={({ isActive }) =>
+                  isActive
+                    ? "bg-[#7e9695]"
+                    : "text-gray-900  p-2"
+                }  to={'/'}>Home</NavLink></li>
+    <li><NavLink  className={({ isActive }) =>
+                  isActive
+                    ? "bg-[#7e9695]"
+                    : "text-gray-900  p-2"
+                }  to={'/availableCamp'}>Available Camp</NavLink></li>
    {
-    !user&& <li><NavLink  to={'/joinUs'}>Join Us</NavLink></li>
+    !user&& <li><NavLink className={({ isActive }) =>
+    isActive
+      ? " bg-[#7e9695]"
+      : "text-gray-900  p-2"
+  }   to={'/joinUs'}>Join Us</NavLink></li>
    }
-    <li><NavLink  to={'/support'}>Support</NavLink></li>
-    <li><NavLink  to={'/careBoat'}>Care bot</NavLink></li>
+    <li><NavLink className={({ isActive }) =>
+                  isActive
+                    ? " bg-[#7e9695]"
+                    : "text-gray-900  p-2"
+                }  to={'/support'}>Support</NavLink></li>
+    <li><NavLink className={({ isActive }) =>
+                  isActive
+                    ? " bg-[#7e9695]"
+                    : "text-gray-900  p-2"
+                }  to={'/careBoat'}>Care bot</NavLink></li>
     </>
     const navEnd= <>
  <div className="dropdown dropdown-end">

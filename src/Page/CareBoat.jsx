@@ -21,7 +21,7 @@ const CareBoat = () => {
     setInput("");
 
     try {
-      const response = await axios.get("http://localhost:8500/chat", {
+      const response = await axios.get("https://medical-camp-server-theta.vercel.app/chat", {
         params: { message: input },
       });
       setMessages([...newMessages, { sender: "bot", text: response.data.response }]);
