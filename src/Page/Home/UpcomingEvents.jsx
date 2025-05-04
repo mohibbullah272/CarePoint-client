@@ -34,38 +34,123 @@ const UpcomingEvents = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
     adaptiveHeight: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="w-full py-16 bg-gray-100 text-center px-4"
+      className="w-full py-16 bg-[#f7f7f7] text-center px-4"
     >
-      <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-10">Upcoming Events</h2>
-      <div className="max-w-3xl mx-auto">
-        <Slider {...settings}>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-4xl font-bold text-[#1a1a1a] mb-12"
+      >
+        Upcoming Events
+      </motion.h2>
+      <div className="max-w-6xl mx-auto">
+        <Slider {...settings} className="slick-slider-custom">
           {upcomingEvents.map((event) => (
-            <div key={event.id} className="p-6 bg-white shadow-lg rounded-xl max-w-md mx-auto">
-              <FaCalendarAlt className="text-3xl text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{event.title}</h3>
-              <p className="text-gray-600 mt-2 text-sm sm:text-base">📅 {event.date}</p>
-              <p className="text-gray-600 text-sm sm:text-base">📍 {event.location}</p>
-              <img
-                src={event.image}
-                alt={event.title}
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mt-4 border-2 border-gray-300"
-              />
-            </div>
+            <motion.div
+              key={event.id}
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              className="p-4"
+            >
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+                <div className="p-6 text-left">
+                  <h3 className="text-xl font-semibold text-[#1a1a1a] mb-2">{event.title}</h3>
+                  <div className="flex items-center gap-2 text-gray-600 mb-2">
+                    <FaCalendarAlt className="text-[#7e9695]" />
+                    <p className="text-sm">{event.date}</p>
+                  </div>
+                  <p className="text-sm text-gray-600">📍 {event.location}</p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </Slider>
       </div>
+      <style jsx>{`
+        .slick-slider-custom .slick-dots li button:before {
+          font-size: 12px;
+          color: #7e9695;
+          opacity: 0.5;
+        }
+        .slick-slider-custom .slick-dots325 li.slick-active button:before {
+          color: #7e9695;
+          opacity: 1;
+        }
+        .slick-slider-custom .slick-prev,
+        .slick-slider-custom .slick-next {
+          z-index: 10;
+          width: 40px;
+          height: 40px;
+          background: #7e9695;
+          border-radius: 50%;
+          transition: all 0.3s;
+        }
+        .slick-slider-custom .slick-prev:hover,
+        .slick-slider-custom .slick-next:hover {
+          background: #6a827f;
+        }
+        .slick-slider-custom .slick-prev:before,
+        .slick-slider-custom .slick-next:before {
+          color: white;
+        }
+        .slick-slider-custom .slick-prev {
+          left: -50px;
+        }
+        .slick-slider-custom .slick-next {
+          right: -50px;
+        }
+        @media (max-width: 640px) {
+          .slick-slider-custom .slick-prev {
+            left: 10px;
+          }
+          .slick-slider-custom .slick-next {
+            right: 10px;
+          }
+        }
+      `}</style>
     </motion.section>
   );
 };
